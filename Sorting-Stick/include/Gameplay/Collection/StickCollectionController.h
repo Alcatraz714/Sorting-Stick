@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <thread>
+#include "../include/Gameplay/Collection/StickCollectionModel.h"
 
 namespace Gameplay
 {
@@ -11,6 +12,7 @@ namespace Gameplay
         class StickCollectionModel;
         struct Stick;
         enum class SortType;
+        enum class SortState;
 
         class StickCollectionController
         {
@@ -27,7 +29,7 @@ namespace Gameplay
             int number_of_comparisons;
             int number_of_array_access;
             int current_operation_delay;
-
+            int color_delay; // color change delay
             int delay_in_ms;
             sf::String time_complexity;
 
@@ -57,6 +59,7 @@ namespace Gameplay
 
             // Sorting method bodies -
             void processBubbleSort();
+            void setCompletedColor();
 
             void reset();
             void sortElements(SortType sort_type);
