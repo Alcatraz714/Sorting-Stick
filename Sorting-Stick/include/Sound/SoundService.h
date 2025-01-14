@@ -7,6 +7,7 @@ namespace Sound
 	{
 		BUTTON_CLICK,
 		COMPARE_SFX,
+		SCREAM,
 	};
 
 	class SoundService
