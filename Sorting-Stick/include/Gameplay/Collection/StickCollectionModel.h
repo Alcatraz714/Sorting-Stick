@@ -15,6 +15,12 @@ namespace Gameplay
             RADIX_SORT,
         };
 
+        enum class SortState
+        {
+            SORTING,
+            NOT_SORTING
+        };
+
         class StickCollectionModel
         {
         public:

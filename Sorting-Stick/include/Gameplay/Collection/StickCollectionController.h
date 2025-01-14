@@ -20,6 +20,7 @@ namespace Gameplay
 
             std::vector<Stick*> sticks;
             SortType sort_type;
+            SortState sort_state;
 
             std::thread sort_thread;
 
@@ -53,6 +54,9 @@ namespace Gameplay
             void initialize();
             void update();
             void render();
+
+            // Sorting method bodies -
+            void processBubbleSort();
 
             void reset();
             void sortElements(SortType sort_type);
