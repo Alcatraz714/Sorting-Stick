@@ -34,6 +34,7 @@ namespace Gameplay
             const sf::Color processing_element_color = sf::Color::Red;
             const sf::Color placement_position_element_color = sf::Color::Green;
             const sf::Color selected_element_color = sf::Color::Blue;
+            const sf::Color temporary_processing_color = sf::Color::Cyan;
 
             const long operation_delay = 15; // 150 default
             const long initial_color_delay = 40; // color change delay
