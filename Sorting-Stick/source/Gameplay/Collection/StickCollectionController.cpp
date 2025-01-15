@@ -182,6 +182,11 @@ namespace Gameplay
 			}
 		}
 
+		void StickCollectionController::processInsertionSort()
+		{
+
+		}
+
 		void StickCollectionController::setCompletedColor()
 		{
 			for (int k = 0; k < sticks.size(); k++) {
@@ -225,6 +230,10 @@ namespace Gameplay
 				//sort_state = SortState::SORTING; - not needed as function begins any sorting
 				time_complexity = "O(n^2)";
 				sort_thread = std::thread(&StickCollectionController::processBubbleSort, this);
+				break;
+			case Gameplay::Collection::SortType::INSERTION_SORT:
+				time_complexity = "";
+				sort_thread = std::thread(&StickCollectionController::processInsertionSort, this);
 				break;
 			}
 		}
