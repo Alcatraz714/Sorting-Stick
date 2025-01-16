@@ -232,6 +232,11 @@ namespace Gameplay
 			setCompletedColor();
 		}
 
+		void StickCollectionController::processSelectionSort()
+		{
+
+		}
+
 		void StickCollectionController::setCompletedColor()
 		{
 			for (int k = 0; k < sticks.size(); k++) {
@@ -280,6 +285,11 @@ namespace Gameplay
 				time_complexity = "O(n^2)"; // same method of sorting as bubble sort but sub set based
 				sort_thread = std::thread(&StickCollectionController::processInsertionSort, this);
 				break;
+			case Gameplay::Collection::SortType::SELECTION_SORT:
+				time_complexity = "";
+				sort_thread = std::thread(&StickCollectionController::processSelectionSort, this);
+				break;
+
 			}
 		}
 

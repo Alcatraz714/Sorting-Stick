@@ -60,6 +60,9 @@ namespace Gameplay
             // Sorting method bodies -
             void processBubbleSort();
             void processInsertionSort();
+            void processSelectionSort();
+            
+            
             void setCompletedColor();
 
             void reset();
