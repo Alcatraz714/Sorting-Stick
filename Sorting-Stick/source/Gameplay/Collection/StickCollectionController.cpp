@@ -280,6 +280,11 @@ namespace Gameplay
 			setCompletedColor();
 		}
 
+		void StickCollectionController::processInPlaceMergeSort()
+		{
+
+		}
+
 		void StickCollectionController::setCompletedColor()
 		{
 			for (int k = 0; k < sticks.size(); k++) {
@@ -331,6 +336,10 @@ namespace Gameplay
 			case Gameplay::Collection::SortType::SELECTION_SORT:
 				time_complexity = "O(n^2)"; // same as we still use subset based sorting like insert sort
 				sort_thread = std::thread(&StickCollectionController::processSelectionSort, this);
+				break;
+			case Gameplay::Collection::SortType::MERGE_SORT:
+				time_complexity = "";
+				sort_thread = std::thread(&StickCollectionController::processInPlaceMergeSort, this);
 				break;
 
 			}
