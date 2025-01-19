@@ -48,6 +48,8 @@ namespace Gameplay
             void inPlaceMerge(int left, int mid, int right);
             void inPlaceMergeSort(int left, int right);
             void processMergeSort();
+            void mergeSort(int left, int right);
+            void merge(int left, int mid, int right);
 
             bool isCollectionSorted();
             void destroy();

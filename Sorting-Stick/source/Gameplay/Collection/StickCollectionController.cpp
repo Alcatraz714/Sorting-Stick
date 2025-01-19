@@ -185,7 +185,71 @@ namespace Gameplay
 
 		void StickCollectionController::processMergeSort()
 		{
+			mergeSort(0, sticks.size() - 1);
+			setCompletedColor();
+		}
 
+		void StickCollectionController::mergeSort(int left, int right)
+		{
+			if (left >= right) return;
+			int mid = left + (right - left) / 2;
+
+			mergeSort(left, mid);
+			mergeSort(mid + 1, right);
+			merge(left, mid, right);
+		}
+
+		void StickCollectionController::merge(int left, int mid, int right)
+		{
+			SoundService* sound = Global::ServiceLocator::getInstance()->getSoundService();
+
+			std::vector<Stick*> temp(right - left + 1);
+			int i = left, j = mid + 1, k = 0;
+
+			// Copy elements to the temporary array
+			for (int index = left; index <= right; ++index) {
+				temp[k++] = sticks[index];
+				sticks[index]->stick_view->setFillColor(collection_model->temporary_processing_color);
+				updateStickPosition();
+			}
+
+			i = 0;  // Start of the first half in temp
+			j = mid - left + 1;  // Start of the second half in temp
+			k = left;  // Start position in the original array to merge back
+
+			// Merge elements back to the original array from temp
+			while (i < mid - left + 1 && j < temp.size()) {
+				if (temp[i]->data <= temp[j]->data) {
+					sticks[k] = temp[i++];
+				}
+				else {
+					sticks[k] = temp[j++];
+				}
+
+				sound->playSound(SoundType::COMPARE_SFX);
+				sticks[k]->stick_view->setFillColor(collection_model->processing_element_color);
+				updateStickPosition();  // Immediate update after assignment
+				std::this_thread::sleep_for(std::chrono::milliseconds(current_operation_delay));
+
+				k++;
+			}
+
+			// Handle remaining elements from both halves
+			while (i < mid - left + 1 || j < temp.size()) {
+				if (i < mid - left + 1) {
+					sticks[k] = temp[i++];
+				}
+				else {
+					sticks[k] = temp[j++];
+				}
+
+				sound->playSound(SoundType::COMPARE_SFX);
+				sticks[k]->stick_view->setFillColor(collection_model->processing_element_color);
+				updateStickPosition();  // Immediate update
+				std::this_thread::sleep_for(std::chrono::milliseconds(current_operation_delay));
+
+				k++;
+			}
 		}
 
 		void StickCollectionController::resetSticksColor()
