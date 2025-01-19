@@ -45,6 +45,9 @@ namespace Gameplay
             void resetVariables();
 
             void processSortThreadState();
+            void inPlaceMerge(int left, int mid, int right);
+            void inPlaceMergeSort(int left, int right);
+            void processMergeSort();
 
             bool isCollectionSorted();
             void destroy();
@@ -61,7 +64,7 @@ namespace Gameplay
             void processBubbleSort();
             void processInsertionSort();
             void processSelectionSort();
-            void processInPlaceMergeSort();
+            void processInPlaceMergeSort(int left, int right);
             
             void setCompletedColor();
 
