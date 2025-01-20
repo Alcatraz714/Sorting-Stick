@@ -50,6 +50,8 @@ namespace Gameplay
             void processMergeSort();
             void mergeSort(int left, int right);
             void merge(int left, int mid, int right);
+            int partition(int left, int right);
+            void quickSort(int left, int right);
 
             bool isCollectionSorted();
             void destroy();
