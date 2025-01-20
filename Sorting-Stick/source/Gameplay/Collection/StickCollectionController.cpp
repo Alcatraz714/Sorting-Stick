@@ -414,6 +414,11 @@ namespace Gameplay
 			setCompletedColor();
 		}
 
+		void StickCollectionController::processQuickSort()
+		{
+
+		}
+
 		void StickCollectionController::setCompletedColor()
 		{
 			for (int k = 0; k < sticks.size(); k++) {
@@ -469,6 +474,10 @@ namespace Gameplay
 			case Gameplay::Collection::SortType::MERGE_SORT:
 				time_complexity = "O(n Log n)";
 				sort_thread = std::thread(&StickCollectionController::processMergeSort, this);
+				break;
+			case Gameplay::Collection::SortType::QUICK_SORT:
+				time_complexity = "";
+				sort_thread = std::thread(&StickCollectionController::processQuickSort, this);
 				break;
 
 			}
