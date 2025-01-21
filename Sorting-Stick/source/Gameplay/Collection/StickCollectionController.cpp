@@ -474,6 +474,11 @@ namespace Gameplay
 			setCompletedColor();
 		}
 
+		void StickCollectionController::processRadixSort()
+		{
+
+		}
+
 		void StickCollectionController::setCompletedColor()
 		{
 			for (int k = 0; k < sticks.size(); k++) {
@@ -533,6 +538,10 @@ namespace Gameplay
 			case Gameplay::Collection::SortType::QUICK_SORT:
 				time_complexity = "O(n Log n)";
 				sort_thread = std::thread(&StickCollectionController::processQuickSort, this);
+				break;
+			case Gameplay::Collection::SortType::RADIX_SORT:
+				time_complexity = "";
+				sort_thread = std::thread(&StickCollectionController::processRadixSort, this);
 				break;
 
 			}

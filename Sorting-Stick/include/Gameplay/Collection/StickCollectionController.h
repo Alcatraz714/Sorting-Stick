@@ -70,6 +70,7 @@ namespace Gameplay
             void processSelectionSort();
             void processInPlaceMergeSort(int left, int right);
             void processQuickSort();
+            void processRadixSort();
             
             void setCompletedColor();
 
